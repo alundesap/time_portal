@@ -17,3 +17,7 @@ mergedManifestDescriptor.json
 APIExternalProducer.js
 .*/APIExternalProducer.js
 /mta_archives/
+.mta/
+target/
+node_modules/
+package-lock.json
