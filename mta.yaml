@@ -1,0 +1,49 @@
+ID: time_portal
+_schema-version: '2.1'
+description: Test Portal App
+parameters:
+  deploy_mode: html5-repo
+version: 0.0.1
+modules:
+  - name: time_portal_appRouter
+    type: approuter.nodejs
+    path: time_portal_appRouter
+    parameters:
+      disk-quota: 256M
+      memory: 256M
+    requires:
+      - name: time_portal_html5_repo_runtime
+      - name: portal_resources_time_portal
+  - name: time_portal_ui_deployer
+    type: com.sap.html5.application-content
+    path: time_portal_ui_deployer
+    requires:
+      - name: time_portal_html5_repo_host
+  - name: Test
+    type: com.sap.portal.content
+    path: Test
+    parameters:
+      stack: cflinuxfs3
+      memory: 128M
+      buildpack: 'https://github.com/cloudfoundry/nodejs-buildpack/releases/download/v1.6.39/nodejs-buildpack-cflinuxfs3-v1.6.39.zip'
+    requires:
+      - name: portal_resources_time_portal
+      - name: uaa_time_portal
+      - name: time_portal_html5_repo_host
+      - name: time_portal_ui_deployer
+resources:
+  - name: time_portal_html5_repo_runtime
+    parameters:
+      service-plan: app-runtime
+      service: html5-apps-repo
+    type: org.cloudfoundry.managed-service
+  - name: time_portal_html5_repo_host
+    parameters:
+      service-plan: app-host
+      service: html5-apps-repo
+    type: org.cloudfoundry.managed-service
+  - name: portal_resources_time_portal
+    parameters:
+      service-plan: standard
+      service: portal
+    type: org.cloudfoundry.managed-service
