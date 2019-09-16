@@ -1,0 +1,71 @@
+"crossNavigation": {
+ 
+   "inbounds": {
+ 
+      "intent1": {
+ 
+         "signature": {
+ 
+            "parameters": {
+ 
+               "name1": {
+ 
+                  "defaultValue": {
+ 
+                     "value": "value1",
+ 
+                     "format": "plain"
+ 
+                  },
+ 
+                  "required": true
+ 
+               },
+ 
+               "name2": {
+ 
+                  "defaultValue": {
+ 
+                     "value": "value2",
+ 
+                     "format": "plain"
+ 
+                  },
+ 
+                  "required": true
+ 
+               },
+ 
+               "name3": {
+ 
+                  "defaultValue": {
+ 
+                     "value": "value3",
+ 
+                     "format": "plain"
+ 
+                  },
+ 
+                  "required": false
+ 
+               }
+ 
+            },
+ 
+            "additionalParameters": "allowed"
+ 
+         },
+ 
+         "semanticObject": "ParameterPassing",
+ 
+         "action": "display",
+ 
+         "title": "{{appTitle}}",
+ 
+         "icon": "sap-icon://accelerated"
+ 
+      }
+ 
+   }
+ 
+}
